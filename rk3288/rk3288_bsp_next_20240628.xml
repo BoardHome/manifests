@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <include name="include/gitlab_boarddogboy_doghouse.xml" />
-  <default sync-j="4" dest-branch="rk3288/bsp_next"/>
+  <default remote="boarddogboy/doghouse" sync-j="4" dest-branch="rk3288/bsp_next"/>
   <project name="device/rockchip">
     <linkfile dest="mkfirmware.sh" src="common/mkfirmware.sh"/>
     <linkfile dest="build.sh" src="common/build.sh"/>
