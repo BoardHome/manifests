@@ -33,7 +33,7 @@ jobs:
           sudo apt-get update && sudo apt-get install -y repo
       - name: Repo Initialization Process
         run: |
-          repo init --no-clone-bundle --repo-url https://github.com/BoardHome/git-repo.git -u https://github.com/BoardHome/manifests.git -m r3288_bsp_release.xml
+          repo init --no-clone-bundle --repo-url https://github.com/BoardHome/git-repo.git -u https://github.com/BoardHome/manifests.git -m rk3288_bsp_release.xml
       - name: Repo Synchronization Process
         run: |
           .repo/repo/repo sync -c --no-tags
