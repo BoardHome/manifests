@@ -1,8 +1,12 @@
 # Test Sync Sdk Code workflow
 name: Test Sync Sdk Code
+# on:
+#   schedule:
+#     - cron: "30 0 * * *"
 on:
-  schedule:
-    - cron: "30 0 * * *"
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
 jobs:
   r3288_release:
     name: Test Sync rk3288_release Sdk Code
