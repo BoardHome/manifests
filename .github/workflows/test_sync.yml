@@ -1,0 +1,36 @@
+# Test Sync Sdk Code workflow
+name: Test Sync Sdk Code
+on:
+  schedule:
+    - cron: "30 0 * * *"
+jobs:
+  r3288_release:
+    name: Test Sync rk3288_release Sdk Code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare dependent software
+        run: |
+          apt update && apt install -y repo
+      - name: Repo Initialization Process
+        run: |
+          mkdir -p r3288_release/ && cd r3288_release/
+          repo init --no-clone-bundle --repo-url https://github.com/BoardHome/git-repo.git -u https://github.com/BoardHome/manifests.git -m rk3288_release.xml
+      - name: Repo Synchronization Process
+        run: |
+          mkdir -p r3288_release/ && cd r3288_release/
+          .repo/repo/repo sync -c --no-tags
+  r3288_bsp_release:
+    name: Test Sync r3288_bsp_release Sdk Code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare dependent software
+        run: |
+          apt update && apt install -y repo
+      - name: Repo Initialization Process
+        run: |
+          mkdir -p r3288_release/ && cd r3288_release/
+          repo init --no-clone-bundle --repo-url https://github.com/BoardHome/git-repo.git -u https://github.com/BoardHome/manifests.git -m r3288_bsp_release.xml
+      - name: Repo Synchronization Process
+        run: |
+          mkdir -p r3288_release/ && cd r3288_release/
+          .repo/repo/repo sync -c --no-tags
