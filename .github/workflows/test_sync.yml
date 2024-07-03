@@ -21,7 +21,6 @@ jobs:
           repo init --no-clone-bundle --repo-url https://github.com/BoardHome/git-repo.git -u https://github.com/BoardHome/manifests.git -m rk3288_release.xml
       - name: Repo Synchronization Process
         run: |
-          mkdir -p r3288_release/ && cd r3288_release/
           .repo/repo/repo sync -c --no-tags
   r3288_bsp_release:
     name: Test Sync r3288_bsp_release Sdk Code
@@ -36,5 +35,4 @@ jobs:
           repo init --no-clone-bundle --repo-url https://github.com/BoardHome/git-repo.git -u https://github.com/BoardHome/manifests.git -m r3288_bsp_release.xml
       - name: Repo Synchronization Process
         run: |
-          mkdir -p r3288_release/ && cd r3288_release/
           .repo/repo/repo sync -c --no-tags
