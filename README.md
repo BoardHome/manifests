@@ -1,6 +1,6 @@
-# Dog House Manifests
+# Board Home Manifests
 
-doghouse manifests repository
+BoardHome manifests repository
 
 ## XML Order Rules
 
@@ -17,7 +17,8 @@ doghouse manifests repository
 
   ***manifests stable branch:***
 
-  `repo init --no-clone-bundle --repo-url https://github.com/BoardHome/git-repo.git -u https://github.com/BoardHome/manifests.git -m rk3288_bsp_release_v0.0.1.xml`
+  `repo init --no-clone-bundle --repo-url https://github.com/BoardHome/git-repo.git -u https://github.com/BoardHome/manifests.git -m rk3288_bsp_release_v0.0.0.xml`
+
 * update command:
 
   `.repo/repo/repo sync -c --no-tags`
