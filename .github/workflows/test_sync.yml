@@ -7,6 +7,9 @@ on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
+permissions:
+  actions: write
+  contents: write
 jobs:
   r3288_release:
     name: Test Sync rk3288_release Sdk Code
@@ -17,7 +20,6 @@ jobs:
           sudo apt-get update && sudo apt-get install -y repo
       - name: Repo Initialization Process
         run: |
-          mkdir -p r3288_release/ && cd r3288_release/
           repo init --no-clone-bundle --repo-url https://github.com/BoardHome/git-repo.git -u https://github.com/BoardHome/manifests.git -m rk3288_release.xml
       - name: Repo Synchronization Process
         run: |
@@ -31,7 +33,6 @@ jobs:
           sudo apt-get update && sudo apt-get install -y repo
       - name: Repo Initialization Process
         run: |
-          mkdir -p r3288_release/ && cd r3288_release/
           repo init --no-clone-bundle --repo-url https://github.com/BoardHome/git-repo.git -u https://github.com/BoardHome/manifests.git -m r3288_bsp_release.xml
       - name: Repo Synchronization Process
         run: |
