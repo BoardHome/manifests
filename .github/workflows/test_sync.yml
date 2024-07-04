@@ -1,12 +1,8 @@
 # Test Sync Sdk Code workflow
 name: Test Sync Sdk Code
-# on:
-#   schedule:
-#     - cron: "30 0 * * *"
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
+  schedule:
+    - cron: "30 0 * * *"
 permissions:
   actions: write
   contents: write
@@ -21,9 +17,11 @@ jobs:
       - name: Repo Initialization Process
         run: |
           repo init --no-clone-bundle --repo-url https://github.com/BoardHome/git-repo.git -u https://github.com/BoardHome/manifests.git -m rk3288_release.xml
+          .repo/repo/repo --version
       - name: Repo Synchronization Process
         run: |
-          .repo/repo/repo sync -c --no-tags
+          .repo/repo/repo list
+          .repo/repo/repo --trace sync -c --no-tags
   r3288_bsp_release:
     name: Test Sync r3288_bsp_release Sdk Code
     runs-on: ubuntu-latest
@@ -34,6 +32,8 @@ jobs:
       - name: Repo Initialization Process
         run: |
           repo init --no-clone-bundle --repo-url https://github.com/BoardHome/git-repo.git -u https://github.com/BoardHome/manifests.git -m rk3288_bsp_release.xml
+          .repo/repo/repo --version
       - name: Repo Synchronization Process
         run: |
-          .repo/repo/repo sync -c --no-tags
+          .repo/repo/repo list
+          .repo/repo/repo --trace sync -c --no-tags
